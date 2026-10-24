@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#edf3ef">
+  <meta name="description" content="End The Stigma Around Depression — learn and explore an interactive story.">
+  <title>End The Stigma Around Depression</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #203e35; background: #edf3ef; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 280px; background: radial-gradient(ellipse at 15% 10%, #f8faf6 0, transparent 60%), radial-gradient(ellipse at 100% 100%, #dce9e3 0, transparent 65%), #edf3ef; }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible { outline: 3px solid #577b6e; outline-offset: 5px; }
+    main { min-height: 100svh; display: grid; }
+    .screen { grid-area: 1 / 1; width: 100%; min-height: 100svh; padding: 40px 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity 320ms ease, transform 320ms ease, visibility 320ms; }
+    .screen.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    h1, h2 { margin: 0; font-weight: 650; letter-spacing: -0.045em; text-align: center; text-wrap: balance; }
+    h1 { max-width: 800px; font-size: clamp(2.5rem, 6.5vw, 4.8rem); line-height: 1.1; }
+    h1 span { display: block; color: #527667; }
+    .actions { width: min(100%, 390px); display: grid; gap: 14px; margin-top: 46px; }
+    .action { min-height: 64px; padding: 18px 24px; border-radius: 16px; font-size: 1rem; font-weight: 600; border: 1px solid #c9d8cf; }
+    .learn { background: #e3ebe6; color: #718478; cursor: not-allowed; }
+    .play { background: #2d5848; border-color: #2d5848; color: #fff; box-shadow: 0 8px 22px #294e3e18; cursor: pointer; transition: background 180ms, transform 180ms, box-shadow 180ms; }
+    .play:hover { background: #234a3b; transform: translateY(-2px); box-shadow: 0 10px 26px #294e3e24; }
+    .play:active { transform: translateY(0); }
+    .character-content { width: min(100%, 820px); }
+    .back { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #cbdad1; background: #ffffff80; border-radius: 12px; padding: 11px 17px; color: #345747; cursor: pointer; margin-bottom: 32px; transition: background 180ms; }
+    .back:hover { background: #fff; }
+    .back svg { width: 18px; height: 18px; }
+    h2 { font-size: clamp(2rem, 4.8vw, 3.3rem); line-height: 1.15; margin-bottom: 38px; }
+    h2:focus { outline: none; }
+    .characters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .character { min-height: 200px; padding: 28px 14px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #ffffffb3; border: 1px solid #d4e1d8; border-radius: 22px; box-shadow: 0 6px 24px #284a3810; }
+    .character h3 { margin: 0 0 10px; font-size: clamp(1.25rem, 3vw, 1.65rem); font-weight: 600; letter-spacing: -0.02em; }
+    .character p { margin: 0; color: #78877e; font-size: 0.95rem; font-weight: 400; }
+    @media (max-width: 520px) { .screen { padding: 28px 20px; } .characters { gap: 12px; } .character { min-height: 160px; border-radius: 18px; } .actions { margin-top: 34px; } h2 { margin-bottom: 28px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="home" class="screen active" aria-labelledby="main-title">
+      <h1 id="main-title">End The Stigma <span>Around Depression</span></h1>
+      <div class="actions">
+        <button class="action learn" type="button" disabled>Learn About Depression</button>
+        <button id="play" class="action play" type="button">Play Interactive Story</button>
+      </div>
+    </section>
+    <section id="character-screen" class="screen" aria-labelledby="character-title" aria-hidden="true" inert>
+      <div class="character-content">
+        <button id="back" class="back" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+        <h2 id="character-title" tabindex="-1">Choose a Character</h2>
+        <div class="characters">
+          <div class="character"><h3>Player 1</h3><p>Description 1</p></div>
+          <div class="character"><h3>Player 2</h3><p>Description 2</p></div>
+          <div class="character"><h3>Player 3</h3><p>Description 3</p></div>
+          <div class="character"><h3>Player 4</h3><p>Description 4</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const home = document.getElementById('home');
+    const characters = document.getElementById('character-screen');
+    const play = document.getElementById('play');
+    const back = document.getElementById('back');
+    const heading = document.getElementById('character-title');
+    function showScreen(showCharacters) {
+      const incoming = showCharacters ? characters : home;
+      const outgoing = showCharacters ? home : characters;
+      outgoing.inert = true;
+      outgoing.setAttribute('aria-hidden', 'true');
+      outgoing.classList.remove('active');
+      incoming.inert = false;
+      incoming.removeAttribute('aria-hidden');
+      incoming.classList.add('active');
+      (showCharacters ? heading : play).focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    play.addEventListener('click', () => showScreen(true));
+    back.addEventListener('click', () => showScreen(false));
+  </script>
+</body>
+</html>
