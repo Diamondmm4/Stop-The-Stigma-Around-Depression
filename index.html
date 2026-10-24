@@ -49,6 +49,40 @@
     .next svg { width: 40px; height: 40px; }
     @media (max-width: 520px) { .story-screen { padding: 22px 16px; } .story-header { grid-template-columns: 76px minmax(0, 1fr) 76px; gap: 4px; margin-bottom: 22px; } .story-header .back { padding: 10px; gap: 4px; } .story-header h2 { font-size: 1.7rem; } .story-body { grid-template-columns: minmax(0, 1fr) 44px; gap: 10px; } .setting-box { border-radius: 18px; } .next svg { width: 32px; height: 32px; } }
     @media (max-width: 520px) { .screen { padding: 28px 20px; } .characters { gap: 12px; } .character { min-height: 160px; border-radius: 18px; } .actions { margin-top: 34px; } h2 { margin-bottom: 28px; } }
+
+    .next:not(:disabled) { color: #345747; cursor: pointer; transition: color 180ms, transform 180ms; }
+    .next:not(:disabled):hover { color: #142e24; transform: translateX(3px); }
+    .scene-stage { position: relative; flex: 1; min-height: 65svh; overflow: clip; }
+    .scene-box { width: calc(83.333333% - 36px); min-height: 100%; height: 100%; display: block; }
+    .scene-box h3 { text-align: center; margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
+    .question-panel { position: absolute; inset: 0 0 0 auto; width: 66.666667%; background: #e2ebe5; border: 1px solid #c5d6ca; border-radius: 24px 0 0 24px; box-shadow: -8px 0 28px #284a3812; transform: translateX(75%); transition: transform 480ms cubic-bezier(.22,1,.36,1); display: flex; flex-direction: column; }
+    .question-panel.is-open { transform: translateX(0); }
+    .panel-toggle { position: absolute; top: 50%; left: -22px; transform: translateY(-50%); width: 44px; height: 64px; display: grid; place-items: center; border: 1px solid #b4cabd; border-radius: 14px; background: #f7faf7; color: #294c3c; cursor: pointer; box-shadow: 0 4px 14px #284a381a; z-index: 2; }
+    .panel-toggle svg { width: 24px; height: 24px; transition: transform 480ms cubic-bezier(.22,1,.36,1); }
+    .is-open .panel-toggle svg { transform: rotate(180deg); }
+    .question-title { width: calc(25% - 24px); margin: 30px 12px 24px; text-align: center; overflow-wrap: anywhere; font-size: clamp(1rem, 2.3vw, 1.65rem); line-height: 1.4; font-weight: 600; transition: width 480ms cubic-bezier(.22,1,.36,1), margin 480ms cubic-bezier(.22,1,.36,1); }
+    .is-open .question-title { width: calc(100% - 48px); margin-inline: 24px; }
+    .answer-grid { padding: 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); grid-template-rows: repeat(2, minmax(120px,1fr)); gap: 20px; flex: 1; min-height: 0; }
+    .answer { position: relative; display: grid; place-items: center; min-width: 0; padding: 20px 12px; border: 1px solid #171717; border-radius: 18px; background: #171717; color: #fff; cursor: pointer; transition: background 260ms, border-color 260ms; font-size: clamp(1rem, 2vw, 1.35rem); }
+    .answer:hover { border-color: #91b5a0; }
+    .answer[aria-pressed="true"] { background: #484848; border-color: #484848; }
+    .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
+    .answer .effect-label { opacity: 0; transform: translateY(5px); }
+    .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
+    .answer[aria-pressed="true"] .effect-label { opacity: 1; transform: translateY(0); }
+    .panel-footer { display: flex; justify-content: flex-end; padding: 16px 24px 20px; }
+    .panel-footer .next { min-width: 44px; }
+    @media (max-width: 600px) {
+      .scene-box { width: calc(83.333333% - 24px); padding: 24px 12px; }
+      .question-panel { border-radius: 18px 0 0 18px; }
+      .question-title { width: calc(25% - 8px); margin: 22px 4px 20px; font-size: 1rem; }
+      .is-open .question-title { width: calc(100% - 24px); margin-inline: 12px; }
+      .answer-grid { gap: 10px; padding: 0 12px; }
+      .answer { border-radius: 12px; padding: 16px 6px; font-size: .95rem; }
+      .panel-toggle { left: -18px; width: 36px; height: 56px; }
+      .panel-footer { padding: 12px; }
+    }
+
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -83,7 +117,7 @@
           <article class="setting-box" aria-label="Player 1 setting">
             <p class="setting-placeholder">Setting</p>
           </article>
-          <button class="next" type="button" disabled aria-label="Next">
+          <button id="player-1-next" class="next setting-next" data-player="1" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Next</span>
           </button>
@@ -100,7 +134,7 @@
           <article class="setting-box" aria-label="Player 2 setting">
             <p class="setting-placeholder">Setting</p>
           </article>
-          <button class="next" type="button" disabled aria-label="Next">
+          <button id="player-2-next" class="next setting-next" data-player="2" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Next</span>
           </button>
@@ -117,7 +151,7 @@
           <article class="setting-box" aria-label="Player 3 setting">
             <p class="setting-placeholder">Setting</p>
           </article>
-          <button class="next" type="button" disabled aria-label="Next">
+          <button id="player-3-next" class="next setting-next" data-player="3" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Next</span>
           </button>
@@ -134,10 +168,102 @@
           <article class="setting-box" aria-label="Player 4 setting">
             <p class="setting-placeholder">Setting</p>
           </article>
-          <button class="next" type="button" disabled aria-label="Next">
+          <button id="player-4-next" class="next setting-next" data-player="4" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Next</span>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="player-1-scene-1" class="screen story-screen scene-screen" aria-labelledby="player-1-scene-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back scene-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-1-scene-title" tabindex="-1">Player 1</h2>
+        </header>
+        <div class="scene-stage">
+          <article class="setting-box scene-box" aria-label="Player 1 Scene 1"><h3>Scene 1</h3></article>
+          <aside id="player-1-questions" class="question-panel" aria-labelledby="player-1-question">
+            <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-1-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <h3 id="player-1-question" class="question-title">Question</h3>
+            <div id="player-1-answers" class="answer-grid" inert>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+            </div>
+            <div class="panel-footer"><button class="next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="player-2-scene-1" class="screen story-screen scene-screen" aria-labelledby="player-2-scene-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back scene-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-2-scene-title" tabindex="-1">Player 2</h2>
+        </header>
+        <div class="scene-stage">
+          <article class="setting-box scene-box" aria-label="Player 2 Scene 1"><h3>Scene 1</h3></article>
+          <aside id="player-2-questions" class="question-panel" aria-labelledby="player-2-question">
+            <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-2-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <h3 id="player-2-question" class="question-title">Question</h3>
+            <div id="player-2-answers" class="answer-grid" inert>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+            </div>
+            <div class="panel-footer"><button class="next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="player-3-scene-1" class="screen story-screen scene-screen" aria-labelledby="player-3-scene-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back scene-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-3-scene-title" tabindex="-1">Player 3</h2>
+        </header>
+        <div class="scene-stage">
+          <article class="setting-box scene-box" aria-label="Player 3 Scene 1"><h3>Scene 1</h3></article>
+          <aside id="player-3-questions" class="question-panel" aria-labelledby="player-3-question">
+            <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-3-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <h3 id="player-3-question" class="question-title">Question</h3>
+            <div id="player-3-answers" class="answer-grid" inert>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+            </div>
+            <div class="panel-footer"><button class="next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="player-4-scene-1" class="screen story-screen scene-screen" aria-labelledby="player-4-scene-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back scene-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-4-scene-title" tabindex="-1">Player 4</h2>
+        </header>
+        <div class="scene-stage">
+          <article class="setting-box scene-box" aria-label="Player 4 Scene 1"><h3>Scene 1</h3></article>
+          <aside id="player-4-questions" class="question-panel" aria-labelledby="player-4-question">
+            <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-4-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <h3 id="player-4-question" class="question-title">Question</h3>
+            <div id="player-4-answers" class="answer-grid" inert>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+            </div>
+            <div class="panel-footer"><button class="next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+          </aside>
         </div>
       </div>
     </section>
@@ -172,6 +298,45 @@
     document.querySelectorAll('.story-back').forEach(button => {
       button.addEventListener('click', () => {
         showScreen('character-screen', document.getElementById('choose-player-' + button.dataset.player));
+      });
+    });
+
+    document.querySelectorAll('.setting-next').forEach(button => {
+      button.addEventListener('click', () => {
+        const player = button.dataset.player;
+        showScreen('player-' + player + '-scene-1', document.getElementById('player-' + player + '-scene-title'));
+      });
+    });
+    document.querySelectorAll('.scene-back').forEach(button => {
+      button.addEventListener('click', () => {
+        const player = button.dataset.player;
+        showScreen('player-' + player + '-setting', document.getElementById('player-' + player + '-next'));
+      });
+    });
+    document.querySelectorAll('.question-panel').forEach(panel => {
+      const toggle = panel.querySelector('.panel-toggle');
+      const answers = panel.querySelector('.answer-grid');
+      function setOpen(open) {
+        panel.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close question and answers' : 'Open question and answers');
+        answers.inert = !open;
+      }
+      toggle.addEventListener('click', () => setOpen(!panel.classList.contains('is-open')));
+      panel.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+      answers.querySelectorAll('.answer').forEach(button => {
+        button.addEventListener('click', () => {
+          answers.querySelectorAll('.answer').forEach(answer => {
+            const selected = answer === button;
+            answer.setAttribute('aria-pressed', String(selected));
+            answer.setAttribute('aria-label', (selected ? 'Effect ' : 'Answer ') + answer.dataset.answer);
+          });
+        });
       });
     });
   </script>
