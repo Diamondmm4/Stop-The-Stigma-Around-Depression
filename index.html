@@ -89,6 +89,13 @@
       .panel-footer { padding: 12px; }
     }
 
+    .reflection-screen { height: 100svh; min-height: 0; justify-content: flex-start; }
+    .reflection-content { width: 100%; max-width: 1400px; height: 100%; display: flex; flex-direction: column; min-height: 0; }
+    .reflection-content h2 { margin: 0; }
+    .reflection-footer { margin-top: auto; padding-top: 28px; display: flex; justify-content: flex-end; }
+    .choose-characters { max-width: 100%; background: #2d5848; color: #fff; border-color: #2d5848; cursor: pointer; transition: background 180ms, transform 180ms; }
+    .choose-characters:hover { background: #234a3b; transform: translateY(-2px); }
+    .choose-characters:active { transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -330,7 +337,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -380,7 +387,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -430,7 +437,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -480,9 +487,41 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
+      </div>
+    </section>
+    <section id="player-1-reflection" class="screen story-screen reflection-screen" data-player="1" aria-labelledby="player-1-reflection-title" aria-hidden="true" inert>
+      <div class="reflection-content">
+        <h2 id="player-1-reflection-title" tabindex="-1">What We Learned</h2>
+        <footer class="reflection-footer">
+          <button class="action choose-characters" type="button">Back to Choose a Character</button>
+        </footer>
+      </div>
+    </section>
+    <section id="player-2-reflection" class="screen story-screen reflection-screen" data-player="2" aria-labelledby="player-2-reflection-title" aria-hidden="true" inert>
+      <div class="reflection-content">
+        <h2 id="player-2-reflection-title" tabindex="-1">What We Learned</h2>
+        <footer class="reflection-footer">
+          <button class="action choose-characters" type="button">Back to Choose a Character</button>
+        </footer>
+      </div>
+    </section>
+    <section id="player-3-reflection" class="screen story-screen reflection-screen" data-player="3" aria-labelledby="player-3-reflection-title" aria-hidden="true" inert>
+      <div class="reflection-content">
+        <h2 id="player-3-reflection-title" tabindex="-1">What We Learned</h2>
+        <footer class="reflection-footer">
+          <button class="action choose-characters" type="button">Back to Choose a Character</button>
+        </footer>
+      </div>
+    </section>
+    <section id="player-4-reflection" class="screen story-screen reflection-screen" data-player="4" aria-labelledby="player-4-reflection-title" aria-hidden="true" inert>
+      <div class="reflection-content">
+        <h2 id="player-4-reflection-title" tabindex="-1">What We Learned</h2>
+        <footer class="reflection-footer">
+          <button class="action choose-characters" type="button">Back to Choose a Character</button>
+        </footer>
       </div>
     </section>
   </main>
@@ -545,8 +584,9 @@
       const scene = Number(screen.dataset.scene);
       const next = panel.querySelector('.scene-next');
       next.addEventListener('click', () => {
-        if (scene >= 3 || !answers.querySelector('[aria-pressed="true"]')) return;
-        const destination = document.getElementById('player-' + screen.dataset.player + '-scene-' + (scene + 1));
+        if (!answers.querySelector('[aria-pressed="true"]')) return;
+        const destinationId = 'player-' + screen.dataset.player + (scene === 3 ? '-reflection' : '-scene-' + (scene + 1));
+        const destination = document.getElementById(destinationId);
         showScreen(destination.id, destination.querySelector('h2'));
       });
       function setOpen(open) {
@@ -569,9 +609,13 @@
             answer.setAttribute('aria-pressed', String(selected));
             answer.setAttribute('aria-label', (selected ? 'Effect ' : 'Answer ') + answer.dataset.answer);
           });
-          // Scene 3 is the final screen built so far.
-          next.disabled = scene >= 3;
+          next.disabled = false;
         });
+      });
+    });
+    document.querySelectorAll('.choose-characters').forEach(button => {
+      button.addEventListener('click', () => {
+        showScreen('character-screen', document.getElementById('character-title'));
       });
     });
   </script>
