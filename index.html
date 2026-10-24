@@ -12,7 +12,7 @@
     body { margin: 0; min-width: 280px; background: radial-gradient(ellipse at 15% 10%, #f8faf6 0, transparent 60%), radial-gradient(ellipse at 100% 100%, #dce9e3 0, transparent 65%), #edf3ef; }
     button { font: inherit; -webkit-tap-highlight-color: transparent; }
     button:focus-visible { outline: 3px solid #577b6e; outline-offset: 5px; }
-    main { min-height: 100svh; display: grid; }
+    main { min-height: 100svh; display: grid; overflow: clip; }
     .screen { grid-area: 1 / 1; width: 100%; min-height: 100svh; padding: 40px 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity 320ms ease, transform 320ms ease, visibility 320ms; }
     .screen.active { opacity: 1; visibility: visible; transform: translateY(0); }
     h1, h2 { margin: 0; font-weight: 650; letter-spacing: -0.045em; text-align: center; text-wrap: balance; }
@@ -32,8 +32,22 @@
     h2:focus { outline: none; }
     .characters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
     .character { min-height: 200px; padding: 28px 14px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #ffffffb3; border: 1px solid #d4e1d8; border-radius: 22px; box-shadow: 0 6px 24px #284a3810; }
-    .character h3 { margin: 0 0 10px; font-size: clamp(1.25rem, 3vw, 1.65rem); font-weight: 600; letter-spacing: -0.02em; }
-    .character p { margin: 0; color: #78877e; font-size: 0.95rem; font-weight: 400; }
+    .character .player-name { margin: 0 0 10px; font-size: clamp(1.25rem, 3vw, 1.65rem); font-weight: 600; letter-spacing: -0.02em; }
+    .character .player-description { margin: 0; color: #78877e; font-size: 0.95rem; font-weight: 400; }
+    .character { color: inherit; cursor: pointer; transition: background 180ms, border-color 180ms, transform 180ms; }
+    .character:hover { background: #fff; border-color: #9bb9a8; transform: translateY(-3px); }
+    .character .player-name, .character .player-description { display: block; }
+    .story-screen { justify-content: flex-start; padding: 28px 32px 36px; }
+    .story-content { width: 100%; max-width: 1400px; margin-inline: auto; flex: 1; display: flex; flex-direction: column; }
+    .story-header { display: grid; grid-template-columns: 100px minmax(0, 1fr) 100px; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .story-header .back { margin: 0; justify-self: start; }
+    .story-header h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.75rem); }
+    .story-body { display: grid; grid-template-columns: minmax(0, 1fr) 64px; gap: 20px; flex: 1; min-height: 65svh; }
+    .setting-box { min-width: 0; padding: clamp(24px, 4vw, 56px); display: flex; align-items: center; justify-content: center; background: #ffffffb3; border: 1px solid #d4e1d8; border-radius: 24px; box-shadow: 0 6px 24px #284a3810; }
+    .setting-placeholder { margin: 0; color: #78877e; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400; }
+    .next { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 0; border: 0; background: transparent; color: #78877e; font-size: .95rem; cursor: not-allowed; }
+    .next svg { width: 40px; height: 40px; }
+    @media (max-width: 520px) { .story-screen { padding: 22px 16px; } .story-header { grid-template-columns: 76px minmax(0, 1fr) 76px; gap: 4px; margin-bottom: 22px; } .story-header .back { padding: 10px; gap: 4px; } .story-header h2 { font-size: 1.7rem; } .story-body { grid-template-columns: minmax(0, 1fr) 44px; gap: 10px; } .setting-box { border-radius: 18px; } .next svg { width: 32px; height: 32px; } }
     @media (max-width: 520px) { .screen { padding: 28px 20px; } .characters { gap: 12px; } .character { min-height: 160px; border-radius: 18px; } .actions { margin-top: 34px; } h2 { margin-bottom: 28px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
@@ -52,34 +66,114 @@
         <button id="back" class="back" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
         <h2 id="character-title" tabindex="-1">Choose a Character</h2>
         <div class="characters">
-          <div class="character"><h3>Player 1</h3><p>Description 1</p></div>
-          <div class="character"><h3>Player 2</h3><p>Description 2</p></div>
-          <div class="character"><h3>Player 3</h3><p>Description 3</p></div>
-          <div class="character"><h3>Player 4</h3><p>Description 4</p></div>
+          <button id="choose-player-1" class="character" type="button" data-player="1" aria-controls="player-1-setting"><span class="player-name">Player 1</span><span class="player-description">Description 1</span></button>
+          <button id="choose-player-2" class="character" type="button" data-player="2" aria-controls="player-2-setting"><span class="player-name">Player 2</span><span class="player-description">Description 2</span></button>
+          <button id="choose-player-3" class="character" type="button" data-player="3" aria-controls="player-3-setting"><span class="player-name">Player 3</span><span class="player-description">Description 3</span></button>
+          <button id="choose-player-4" class="character" type="button" data-player="4" aria-controls="player-4-setting"><span class="player-name">Player 4</span><span class="player-description">Description 4</span></button>
+        </div>
+      </div>
+    </section>
+    <section id="player-1-setting" class="screen story-screen" aria-labelledby="player-1-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back story-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-1-title" tabindex="-1">Player 1</h2>
+        </header>
+        <div class="story-body">
+          <article class="setting-box" aria-label="Player 1 setting">
+            <p class="setting-placeholder">Setting</p>
+          </article>
+          <button class="next" type="button" disabled aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="player-2-setting" class="screen story-screen" aria-labelledby="player-2-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back story-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-2-title" tabindex="-1">Player 2</h2>
+        </header>
+        <div class="story-body">
+          <article class="setting-box" aria-label="Player 2 setting">
+            <p class="setting-placeholder">Setting</p>
+          </article>
+          <button class="next" type="button" disabled aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="player-3-setting" class="screen story-screen" aria-labelledby="player-3-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back story-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-3-title" tabindex="-1">Player 3</h2>
+        </header>
+        <div class="story-body">
+          <article class="setting-box" aria-label="Player 3 setting">
+            <p class="setting-placeholder">Setting</p>
+          </article>
+          <button class="next" type="button" disabled aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="player-4-setting" class="screen story-screen" aria-labelledby="player-4-title" aria-hidden="true" inert>
+      <div class="story-content">
+        <header class="story-header">
+          <button class="back story-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <h2 id="player-4-title" tabindex="-1">Player 4</h2>
+        </header>
+        <div class="story-body">
+          <article class="setting-box" aria-label="Player 4 setting">
+            <p class="setting-placeholder">Setting</p>
+          </article>
+          <button class="next" type="button" disabled aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Next</span>
+          </button>
         </div>
       </div>
     </section>
   </main>
   <script>
-    const home = document.getElementById('home');
-    const characters = document.getElementById('character-screen');
+    // All story pages use the same transition and layout, with separate content per player.
     const play = document.getElementById('play');
-    const back = document.getElementById('back');
-    const heading = document.getElementById('character-title');
-    function showScreen(showCharacters) {
-      const incoming = showCharacters ? characters : home;
-      const outgoing = showCharacters ? home : characters;
-      outgoing.inert = true;
-      outgoing.setAttribute('aria-hidden', 'true');
-      outgoing.classList.remove('active');
+    let activeScreen = document.getElementById('home');
+    function showScreen(screenId, focusTarget) {
+      const incoming = document.getElementById(screenId);
+      if (incoming === activeScreen) return;
+      activeScreen.inert = true;
+      activeScreen.setAttribute('aria-hidden', 'true');
+      activeScreen.classList.remove('active');
       incoming.inert = false;
       incoming.removeAttribute('aria-hidden');
       incoming.classList.add('active');
-      (showCharacters ? heading : play).focus({ preventScroll: true });
+      activeScreen = incoming;
+      requestAnimationFrame(() => {
+        if (activeScreen === incoming) focusTarget.focus({ preventScroll: true });
+      });
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-    play.addEventListener('click', () => showScreen(true));
-    back.addEventListener('click', () => showScreen(false));
+    play.addEventListener('click', () => showScreen('character-screen', document.getElementById('character-title')));
+    document.getElementById('back').addEventListener('click', () => showScreen('home', play));
+    document.querySelectorAll('.character').forEach(button => {
+      button.addEventListener('click', () => {
+        const player = button.dataset.player;
+        showScreen('player-' + player + '-setting', document.getElementById('player-' + player + '-title'));
+      });
+    });
+    document.querySelectorAll('.story-back').forEach(button => {
+      button.addEventListener('click', () => {
+        showScreen('character-screen', document.getElementById('choose-player-' + button.dataset.player));
+      });
+    });
   </script>
 </body>
 </html>
