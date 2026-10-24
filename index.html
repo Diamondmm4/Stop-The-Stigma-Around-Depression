@@ -52,9 +52,13 @@
 
     .next:not(:disabled) { color: #345747; cursor: pointer; transition: color 180ms, transform 180ms; }
     .next:not(:disabled):hover { color: #142e24; transform: translateX(3px); }
-    .scene-stage { position: relative; flex: 1; min-height: 65svh; overflow: clip; }
-    .scene-box { width: calc(83.333333% - 36px); min-height: 100%; height: 100%; display: block; }
-    .scene-box h3 { text-align: center; margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
+    .scene-screen { height: 100svh; min-height: 0; }
+    .scene-screen .story-content { height: 100%; min-height: 0; }
+    .scene-screen .story-header { flex-shrink: 0; }
+    .scene-stage { position: relative; flex: 1; min-height: 0; display: flex; overflow: clip; }
+    .scene-reading { width: calc(83.333333% - 36px); min-height: 0; display: flex; flex-direction: column; }
+    .scene-title { flex-shrink: 0; text-align: center; margin: 0 0 20px; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
+    .scene-box { width: 100%; flex: 1; min-height: 0; display: block; overflow: auto; }
     .question-panel { position: absolute; inset: 0 0 0 auto; width: 66.666667%; background: #e2ebe5; border: 1px solid #c5d6ca; border-radius: 24px 0 0 24px; box-shadow: -8px 0 28px #284a3812; transform: translateX(75%); transition: transform 480ms cubic-bezier(.22,1,.36,1); display: flex; flex-direction: column; }
     .question-panel.is-open { transform: translateX(0); }
     .panel-toggle { position: absolute; top: 50%; left: -22px; transform: translateY(-50%); width: 44px; height: 64px; display: grid; place-items: center; border: 1px solid #b4cabd; border-radius: 14px; background: #f7faf7; color: #294c3c; cursor: pointer; box-shadow: 0 4px 14px #284a381a; z-index: 2; }
@@ -73,7 +77,9 @@
     .panel-footer { display: flex; justify-content: flex-end; padding: 16px 24px 20px; }
     .panel-footer .next { min-width: 44px; }
     @media (max-width: 600px) {
-      .scene-box { width: calc(83.333333% - 24px); padding: 24px 12px; }
+      .scene-reading { width: calc(83.333333% - 24px); }
+      .scene-title { margin-bottom: 14px; }
+      .scene-box { padding: 24px 12px; }
       .question-panel { border-radius: 18px 0 0 18px; }
       .question-title { width: calc(25% - 8px); margin: 22px 4px 20px; font-size: 1rem; }
       .is-open .question-title { width: calc(100% - 24px); margin-inline: 12px; }
@@ -183,7 +189,10 @@
           <h2 id="player-1-scene-title" tabindex="-1">Player 1</h2>
         </header>
         <div class="scene-stage">
-          <article class="setting-box scene-box" aria-label="Player 1 Scene 1"><h3>Scene 1</h3></article>
+          <div class="scene-reading">
+            <h3 id="player-1-scene-1-heading" class="scene-title">Scene 1</h3>
+            <article class="setting-box scene-box" aria-labelledby="player-1-scene-1-heading"></article>
+          </div>
           <aside id="player-1-questions" class="question-panel" aria-labelledby="player-1-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-1-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-1-question" class="question-title">Question</h3>
@@ -206,7 +215,10 @@
           <h2 id="player-2-scene-title" tabindex="-1">Player 2</h2>
         </header>
         <div class="scene-stage">
-          <article class="setting-box scene-box" aria-label="Player 2 Scene 1"><h3>Scene 1</h3></article>
+          <div class="scene-reading">
+            <h3 id="player-2-scene-1-heading" class="scene-title">Scene 1</h3>
+            <article class="setting-box scene-box" aria-labelledby="player-2-scene-1-heading"></article>
+          </div>
           <aside id="player-2-questions" class="question-panel" aria-labelledby="player-2-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-2-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-2-question" class="question-title">Question</h3>
@@ -229,7 +241,10 @@
           <h2 id="player-3-scene-title" tabindex="-1">Player 3</h2>
         </header>
         <div class="scene-stage">
-          <article class="setting-box scene-box" aria-label="Player 3 Scene 1"><h3>Scene 1</h3></article>
+          <div class="scene-reading">
+            <h3 id="player-3-scene-1-heading" class="scene-title">Scene 1</h3>
+            <article class="setting-box scene-box" aria-labelledby="player-3-scene-1-heading"></article>
+          </div>
           <aside id="player-3-questions" class="question-panel" aria-labelledby="player-3-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-3-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-3-question" class="question-title">Question</h3>
@@ -252,7 +267,10 @@
           <h2 id="player-4-scene-title" tabindex="-1">Player 4</h2>
         </header>
         <div class="scene-stage">
-          <article class="setting-box scene-box" aria-label="Player 4 Scene 1"><h3>Scene 1</h3></article>
+          <div class="scene-reading">
+            <h3 id="player-4-scene-1-heading" class="scene-title">Scene 1</h3>
+            <article class="setting-box scene-box" aria-labelledby="player-4-scene-1-heading"></article>
+          </div>
           <aside id="player-4-questions" class="question-panel" aria-labelledby="player-4-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-4-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-4-question" class="question-title">Question</h3>
