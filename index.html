@@ -101,6 +101,11 @@
     .continue-message.is-visible { opacity: 1; transform: translateY(0); }
     .panel-footer .scene-next { flex-shrink: 0; }
     @media (max-width: 600px) { .continue-message { padding: 7px 8px; font-size: .75rem; } .panel-footer { gap: 8px; } }
+    .setting-intro { display: block; }
+    .setting-copy { max-width: 70ch; margin-inline: auto; }
+    .setting-copy h3 { margin: 0 0 28px; text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
+    .setting-copy p { margin: 0; font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.8; color: #203e35; }
+    .setting-copy p + p { margin-top: 28px; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -132,8 +137,11 @@
           <h2 id="player-1-title" tabindex="-1">Jimmy</h2>
         </header>
         <div class="story-body">
-          <article class="setting-box" aria-label="Jimmy setting">
-            <p class="setting-placeholder">Setting</p>
+          <article class="setting-box setting-intro" aria-labelledby="player-1-setting-heading">
+            <div class="setting-copy">
+              <h3 id="player-1-setting-heading">Setting</h3>
+              <p>Jimmy is a 14 year old boy who recently started high school. He lives with his parents and brother named Bob. Jimmy has many classmates among whom is his close friend Steve and a fellow classmate named Albert. Jimmy is a high achieving student with the best grades in his class and high academic expectations from his parents. Jimmy puts the most effort possible into all his assignments while juggling multiple clubs and sports at the same time.</p>
+            </div>
           </article>
           <button id="player-1-next" class="next setting-next" data-player="1" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -149,8 +157,12 @@
           <h2 id="player-2-title" tabindex="-1">Steve</h2>
         </header>
         <div class="story-body">
-          <article class="setting-box" aria-label="Steve setting">
-            <p class="setting-placeholder">Setting</p>
+          <article class="setting-box setting-intro" aria-labelledby="player-2-setting-heading">
+            <div class="setting-copy">
+              <h3 id="player-2-setting-heading">Setting</h3>
+              <p>Jimmy is a 14 year old boy who recently started high school. He lives with his parents and brother named Bob. Jimmy has many classmates among whom is his close friend Steve and a fellow classmate named Albert. Jimmy is a high achieving student with the best grades in his class and high academic expectations from his parents. Jimmy puts the most effort possible into all his assignments while juggling multiple clubs and sports at the same time.</p>
+              <p>Click next to read Steve’s interactions and experiences with Jimmy.</p>
+            </div>
           </article>
           <button id="player-2-next" class="next setting-next" data-player="2" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -166,8 +178,12 @@
           <h2 id="player-3-title" tabindex="-1">Bob</h2>
         </header>
         <div class="story-body">
-          <article class="setting-box" aria-label="Bob setting">
-            <p class="setting-placeholder">Setting</p>
+          <article class="setting-box setting-intro" aria-labelledby="player-3-setting-heading">
+            <div class="setting-copy">
+              <h3 id="player-3-setting-heading">Setting</h3>
+              <p>Jimmy is a 14 year old boy who recently started high school. He lives with his parents and brother named Bob. Jimmy has many classmates among whom is his close friend Steve and a fellow classmate named Albert. Jimmy is a high achieving student with the best grades in his class and high academic expectations from his parents. Jimmy puts the most effort possible into all his assignments while juggling multiple clubs and sports at the same time.</p>
+              <p>Click next to read Bob’s interactions and experiences with Jimmy.</p>
+            </div>
           </article>
           <button id="player-3-next" class="next setting-next" data-player="3" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -183,8 +199,12 @@
           <h2 id="player-4-title" tabindex="-1">Albert</h2>
         </header>
         <div class="story-body">
-          <article class="setting-box" aria-label="Albert setting">
-            <p class="setting-placeholder">Setting</p>
+          <article class="setting-box setting-intro" aria-labelledby="player-4-setting-heading">
+            <div class="setting-copy">
+              <h3 id="player-4-setting-heading">Setting</h3>
+              <p>Jimmy is a 14 year old boy who recently started high school. He lives with his parents and brother named Bob. Jimmy has many classmates among whom is his close friend Steve and a fellow classmate named Albert. Jimmy is a high achieving student with the best grades in his class and high academic expectations from his parents. Jimmy puts the most effort possible into all his assignments while juggling multiple clubs and sports at the same time.</p>
+              <p>Click next to read Albert’s interactions and experiences with Jimmy.</p>
+            </div>
           </article>
           <button id="player-4-next" class="next setting-next" data-player="4" type="button" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
