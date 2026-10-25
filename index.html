@@ -79,6 +79,12 @@
     #player-1-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
     #player-1-answers .answer[data-answer="4"] { --effect-outline: #f87171; }
     #player-1-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-1-answers-scene-2 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-1-answers-scene-2 .answer[data-answer="1"],
+    #player-1-answers-scene-2 .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-1-answers-scene-2 .answer[data-answer="2"] { --effect-outline: #facc15; }
+    #player-1-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #f87171; }
+    #player-1-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
