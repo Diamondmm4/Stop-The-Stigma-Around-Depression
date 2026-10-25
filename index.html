@@ -96,6 +96,11 @@
     .choose-characters { max-width: 100%; background: #2d5848; color: #fff; border-color: #2d5848; cursor: pointer; transition: background 180ms, transform 180ms; }
     .choose-characters:hover { background: #234a3b; transform: translateY(-2px); }
     .choose-characters:active { transform: translateY(0); }
+    .panel-footer { align-items: center; gap: 12px; }
+    .continue-message { margin: 0; max-width: 220px; min-width: 0; padding: 9px 12px; border-radius: 10px; background: #fff4f2; color: #b42318; font-size: .85rem; line-height: 1.4; text-align: center; opacity: 0; transform: translateY(4px); pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }
+    .continue-message.is-visible { opacity: 1; transform: translateY(0); }
+    .panel-footer .scene-next { flex-shrink: 0; }
+    @media (max-width: 600px) { .continue-message { padding: 7px 8px; font-size: .75rem; } .panel-footer { gap: 8px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -209,7 +214,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -235,7 +240,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -261,7 +266,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -287,7 +292,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -312,7 +317,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -337,7 +342,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -362,7 +367,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -387,7 +392,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -412,7 +417,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -437,7 +442,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -462,7 +467,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
         </div>
       </div>
@@ -487,7 +492,7 @@
               <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
-            <div class="panel-footer"><button class="next scene-next" type="button" disabled aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
+            <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
         </div>
       </div>
@@ -583,8 +588,25 @@
       const screen = panel.closest('.scene-screen');
       const scene = Number(screen.dataset.scene);
       const next = panel.querySelector('.scene-next');
+      const message = document.createElement('p');
+      message.id = screen.id + '-continue-message';
+      message.className = 'continue-message';
+      message.setAttribute('role', 'status');
+      message.setAttribute('aria-live', 'polite');
+      next.before(message);
+      function clearMessage() {
+        message.classList.remove('is-visible');
+        message.textContent = '';
+        next.removeAttribute('aria-describedby');
+      }
       next.addEventListener('click', () => {
-        if (!answers.querySelector('[aria-pressed="true"]')) return;
+        if (!answers.querySelector('[aria-pressed="true"]')) {
+          message.textContent = 'Choose an answer to continue';
+          message.classList.add('is-visible');
+          next.setAttribute('aria-describedby', message.id);
+          return;
+        }
+        clearMessage();
         const destinationId = 'player-' + screen.dataset.player + (scene === 3 ? '-reflection' : '-scene-' + (scene + 1));
         const destination = document.getElementById(destinationId);
         showScreen(destination.id, destination.querySelector('h2'));
@@ -594,6 +616,7 @@
         toggle.setAttribute('aria-expanded', String(open));
         toggle.setAttribute('aria-label', open ? 'Close question and answers' : 'Open question and answers');
         answers.inert = !open;
+        if (!open) clearMessage();
       }
       toggle.addEventListener('click', () => setOpen(!panel.classList.contains('is-open')));
       panel.addEventListener('keydown', event => {
@@ -609,7 +632,7 @@
             answer.setAttribute('aria-pressed', String(selected));
             answer.setAttribute('aria-label', (selected ? 'Effect ' : 'Answer ') + answer.dataset.answer);
           });
-          next.disabled = false;
+          clearMessage();
         });
       });
     });
