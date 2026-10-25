@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#edf3ef">
   <meta name="description" content="End The Stigma Around Depression — learn and explore an interactive story.">
   <title>End The Stigma Around Depression</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #203e35; background: #edf3ef; }
     * { box-sizing: border-box; }
@@ -102,10 +105,17 @@
     .panel-footer .scene-next { flex-shrink: 0; }
     @media (max-width: 600px) { .continue-message { padding: 7px 8px; font-size: .75rem; } .panel-footer { gap: 8px; } }
     .setting-intro { display: block; }
-    .setting-copy { max-width: 70ch; margin-inline: auto; }
+    .setting-copy { width: 100%; margin: 0; font-family: "Merriweather", Georgia, serif; }
     .setting-copy h3 { margin: 0 0 28px; text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
-    .setting-copy p { margin: 0; font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.8; color: #203e35; }
+    .setting-copy p { margin: 0; font-size: clamp(1.1rem, 1.8vw, 1.45rem); line-height: 1.8; color: #203e35; }
     .setting-copy p + p { margin-top: 28px; }
+    .story-header h2 { font-size: clamp(1.3rem, 2.8vw, 2.4rem); line-height: 1.25; }
+    .perspective-role { font-size: .75em; font-weight: 400; letter-spacing: -.015em; }
+    @media (max-width: 600px) {
+      .story-header { grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
+      .story-header h2 { font-size: 1.4rem; }
+      .perspective-role { display: block; margin-top: 4px; }
+    }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -134,7 +144,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back story-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-1-title" tabindex="-1">Jimmy</h2>
+          <h2 id="player-1-title" tabindex="-1">Jimmy's Perspective <span class="perspective-role">(Experiencing Depression)</span></h2>
         </header>
         <div class="story-body">
           <article class="setting-box setting-intro" aria-labelledby="player-1-setting-heading">
@@ -154,7 +164,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back story-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-2-title" tabindex="-1">Steve</h2>
+          <h2 id="player-2-title" tabindex="-1">Steve's Perspective <span class="perspective-role">(Best Friend)</span></h2>
         </header>
         <div class="story-body">
           <article class="setting-box setting-intro" aria-labelledby="player-2-setting-heading">
@@ -175,7 +185,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back story-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-3-title" tabindex="-1">Bob</h2>
+          <h2 id="player-3-title" tabindex="-1">Bob's Perspective <span class="perspective-role">(Brother)</span></h2>
         </header>
         <div class="story-body">
           <article class="setting-box setting-intro" aria-labelledby="player-3-setting-heading">
@@ -196,7 +206,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back story-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-4-title" tabindex="-1">Albert</h2>
+          <h2 id="player-4-title" tabindex="-1">Albert's Perspective <span class="perspective-role">(Classmate)</span></h2>
         </header>
         <div class="story-body">
           <article class="setting-box setting-intro" aria-labelledby="player-4-setting-heading">
@@ -218,7 +228,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-1-scene-title" tabindex="-1">Jimmy</h2>
+          <h2 id="player-1-scene-title" tabindex="-1">Jimmy's Perspective <span class="perspective-role">(Experiencing Depression)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -244,7 +254,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-2-scene-title" tabindex="-1">Steve</h2>
+          <h2 id="player-2-scene-title" tabindex="-1">Steve's Perspective <span class="perspective-role">(Best Friend)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -270,7 +280,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-3-scene-title" tabindex="-1">Bob</h2>
+          <h2 id="player-3-scene-title" tabindex="-1">Bob's Perspective <span class="perspective-role">(Brother)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -296,7 +306,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-4-scene-title" tabindex="-1">Albert</h2>
+          <h2 id="player-4-scene-title" tabindex="-1">Albert's Perspective <span class="perspective-role">(Classmate)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -321,7 +331,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-1-scene-title-scene-2" tabindex="-1">Jimmy</h2>
+          <h2 id="player-1-scene-title-scene-2" tabindex="-1">Jimmy's Perspective <span class="perspective-role">(Experiencing Depression)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -346,7 +356,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-1-scene-title-scene-3" tabindex="-1">Jimmy</h2>
+          <h2 id="player-1-scene-title-scene-3" tabindex="-1">Jimmy's Perspective <span class="perspective-role">(Experiencing Depression)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -371,7 +381,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-2-scene-title-scene-2" tabindex="-1">Steve</h2>
+          <h2 id="player-2-scene-title-scene-2" tabindex="-1">Steve's Perspective <span class="perspective-role">(Best Friend)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -396,7 +406,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-2-scene-title-scene-3" tabindex="-1">Steve</h2>
+          <h2 id="player-2-scene-title-scene-3" tabindex="-1">Steve's Perspective <span class="perspective-role">(Best Friend)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -421,7 +431,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-3-scene-title-scene-2" tabindex="-1">Bob</h2>
+          <h2 id="player-3-scene-title-scene-2" tabindex="-1">Bob's Perspective <span class="perspective-role">(Brother)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -446,7 +456,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-3-scene-title-scene-3" tabindex="-1">Bob</h2>
+          <h2 id="player-3-scene-title-scene-3" tabindex="-1">Bob's Perspective <span class="perspective-role">(Brother)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -471,7 +481,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-4-scene-title-scene-2" tabindex="-1">Albert</h2>
+          <h2 id="player-4-scene-title-scene-2" tabindex="-1">Albert's Perspective <span class="perspective-role">(Classmate)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -496,7 +506,7 @@
       <div class="story-content">
         <header class="story-header">
           <button class="back scene-back" type="button" data-player="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
-          <h2 id="player-4-scene-title-scene-3" tabindex="-1">Albert</h2>
+          <h2 id="player-4-scene-title-scene-3" tabindex="-1">Albert's Perspective <span class="perspective-role">(Classmate)</span></h2>
         </header>
         <div class="scene-stage">
           <div class="scene-reading">
@@ -554,7 +564,13 @@
     // All story pages use the same transition and layout, with separate content per player.
     const play = document.getElementById('play');
     let activeScreen = document.getElementById('home');
+    function resetStoryChoices() {
+      document.querySelectorAll('.question-panel').forEach(panel => {
+        panel.dispatchEvent(new Event('reset-story'));
+      });
+    }
     function showScreen(screenId, focusTarget) {
+      if (screenId === 'character-screen') resetStoryChoices();
       const incoming = document.getElementById(screenId);
       if (incoming === activeScreen) return;
       activeScreen.inert = true;
@@ -573,6 +589,7 @@
     document.getElementById('back').addEventListener('click', () => showScreen('home', play));
     document.querySelectorAll('.character').forEach(button => {
       button.addEventListener('click', () => {
+        resetStoryChoices();
         const player = button.dataset.player;
         showScreen('player-' + player + '-setting', document.getElementById('player-' + player + '-title'));
       });
@@ -638,6 +655,13 @@
         answers.inert = !open;
         if (!open) clearMessage();
       }
+      panel.addEventListener('reset-story', () => {
+        answers.querySelectorAll('.answer').forEach(answer => {
+          answer.setAttribute('aria-pressed', 'false');
+          answer.setAttribute('aria-label', 'Answer ' + answer.dataset.answer);
+        });
+        setOpen(false);
+      });
       toggle.addEventListener('click', () => setOpen(!panel.classList.contains('is-open')));
       panel.addEventListener('keydown', event => {
         if (event.key === 'Escape' && panel.classList.contains('is-open')) {
