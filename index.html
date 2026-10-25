@@ -239,10 +239,10 @@
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-1-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-1-question" class="question-title">What can Jimmy do?</h3>
             <div id="player-1-answers" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Talk to his parents or best friend to relieve his pressure, calm down, and have a more clear idea"><span class="answer-label" aria-hidden="true">Talk to his parents or best friend to relieve his pressure, calm down, and have a more clear idea</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Forget about meeting certain expectations and work to the best of his ability without unnecessarily draining himself"><span class="answer-label" aria-hidden="true">Forget about meeting certain expectations and work to the best of his ability without unnecessarily draining himself</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Cutting from his sleep to get his work done as best as possible"><span class="answer-label" aria-hidden="true">Cutting from his sleep to get his work done as best as possible</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Blaming himself for his situation and forcing himself to believe himself being unintelligent or lazy."><span class="answer-label" aria-hidden="true">Blaming himself for his situation and forcing himself to believe himself being unintelligent or lazy.</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
@@ -658,7 +658,7 @@
       panel.addEventListener('reset-story', () => {
         answers.querySelectorAll('.answer').forEach(answer => {
           answer.setAttribute('aria-pressed', 'false');
-          answer.setAttribute('aria-label', 'Answer ' + answer.dataset.answer);
+          answer.setAttribute('aria-label', answer.querySelector('.answer-label').textContent);
         });
         setOpen(false);
       });
@@ -674,7 +674,7 @@
           answers.querySelectorAll('.answer').forEach(answer => {
             const selected = answer === button;
             answer.setAttribute('aria-pressed', String(selected));
-            answer.setAttribute('aria-label', (selected ? 'Effect ' : 'Answer ') + answer.dataset.answer);
+            answer.setAttribute('aria-label', answer.querySelector(selected ? '.effect-label' : '.answer-label').textContent);
           });
           clearMessage();
         });
