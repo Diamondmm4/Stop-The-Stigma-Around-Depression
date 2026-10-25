@@ -73,6 +73,12 @@
     .answer { position: relative; display: grid; place-items: center; min-width: 0; padding: 20px 12px; border: 1px solid #171717; border-radius: 18px; background: #171717; color: #fff; cursor: pointer; transition: background 260ms, border-color 260ms; font-size: clamp(1rem, 2vw, 1.35rem); }
     .answer:hover { border-color: #91b5a0; }
     .answer[aria-pressed="true"] { background: #484848; border-color: #484848; }
+    #player-1-answers .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-1-answers .answer[data-answer="1"],
+    #player-1-answers .answer[data-answer="2"] { --effect-outline: #4ade80; }
+    #player-1-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
+    #player-1-answers .answer[data-answer="4"] { --effect-outline: #f87171; }
+    #player-1-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -241,7 +247,7 @@
             <div id="player-1-answers" class="answer-grid" inert>
               <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Talk to his parents or best friend to relieve his pressure, calm down, and have a more clear idea"><span class="answer-label" aria-hidden="true">Talk to his parents or best friend to relieve his pressure, calm down, and have a more clear idea</span><span class="effect-label" aria-hidden="true">Jimmy feels more calm now and feels like his workload is more easily manageable</span></button>
               <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Forget about meeting certain expectations and work to the best of his ability without unnecessarily draining himself"><span class="answer-label" aria-hidden="true">Forget about meeting certain expectations and work to the best of his ability without unnecessarily draining himself</span><span class="effect-label" aria-hidden="true">Jimmy understands that his effort isn’t the best but his grade will certainly not be as terrible as he expects</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Cutting from his sleep to get his work done as best as possible"><span class="answer-label" aria-hidden="true">Cutting from his sleep to get his work done as best as possible</span><span class="effect-label" aria-hidden="true">Jimmy goes to school feeling terrible and struggles throughout the entire day</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Cutting from his sleep to get his work done as best as possible"><span class="answer-label" aria-hidden="true">Cutting from his sleep to get his work done as best as possible</span><span class="effect-label" aria-hidden="true">Jimmy goes to school feeling terrible and struggles throughout the entire day. Jimmy still keeps his grade high as usual.</span></button>
               <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Blaming himself for his situation and forcing himself to believe himself being unintelligent or lazy."><span class="answer-label" aria-hidden="true">Blaming himself for his situation and forcing himself to believe himself being unintelligent or lazy.</span><span class="effect-label" aria-hidden="true">Jimmy’s low self esteem has caused not only his sleep and morale to worsen, but his grades to be affected as well</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
