@@ -97,6 +97,12 @@
     #player-2-answers .answer[data-answer="2"] { --effect-outline: #4ade80; }
     #player-2-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
     #player-2-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-2-answers-scene-2 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-2-answers-scene-2 .answer[data-answer="1"] { --effect-outline: #facc15; }
+    #player-2-answers-scene-2 .answer[data-answer="2"],
+    #player-2-answers-scene-2 .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-2-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #f87171; }
+    #player-2-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -449,10 +455,10 @@
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-2-answers-scene-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-2-question-scene-2" class="question-title">What’s an appropriate way for Steve to treat Jimmy in this situation?</h3>
             <div id="player-2-answers-scene-2" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Steve should leave Jimmy alone and disregard the fact that he got a very unusual score"><span class="answer-label" aria-hidden="true">Steve should leave Jimmy alone and disregard the fact that he got a very unusual score</span><span class="effect-label" aria-hidden="true">Steve will have less to deal with but Jimmy’s state can cause his depression to worsen</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Steve should try talking to Jimmy regarding his mental health and offer help if needed"><span class="answer-label" aria-hidden="true">Steve should try talking to Jimmy regarding his mental health and offer help if needed</span><span class="effect-label" aria-hidden="true">Jimmy may have wanted to talk to someone for a while and Steve can provide emotional support for Jimmy</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Steve motivate Jimmy to “get his stuff together” and work harder"><span class="answer-label" aria-hidden="true">Steve motivate Jimmy to “get his stuff together” and work harder</span><span class="effect-label" aria-hidden="true">Jimmy can feel annoyed, frustrated, and misunderstood without Steve understanding what’s really going on</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Steve should reach out to Jimmy’s parents or sibling and let them know what he’s observing in Jimmy’s performance"><span class="answer-label" aria-hidden="true">Steve should reach out to Jimmy’s parents or sibling and let them know what he’s observing in Jimmy’s performance</span><span class="effect-label" aria-hidden="true">Steve has more people to support him and has less of a load on himself</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
