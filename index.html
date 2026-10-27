@@ -139,6 +139,12 @@
     #player-4-answers-scene-2 .answer[data-answer="2"],
     #player-4-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #f87171; }
     #player-4-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-4-answers-scene-3 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-4-answers-scene-3 .answer[data-answer="1"] { --effect-outline: #facc15; }
+    #player-4-answers-scene-3 .answer[data-answer="2"],
+    #player-4-answers-scene-3 .answer[data-answer="4"] { --effect-outline: #f87171; }
+    #player-4-answers-scene-3 .answer[data-answer="3"] { --effect-outline: #4ade80; }
+    #player-4-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -668,16 +674,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-4-scene-3-heading" class="scene-title">Scene 3</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-4-scene-3-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-4-scene-3-heading"><div class="setting-copy"><p>During class, Albert notices Jimmy put his head down out of frustration or stress. Albert quietly asks him if he’s okay, and Jimmy mentions that he has so much work to do and doesn’t know if he’s able to get it all done. Albert notices that Jimmy looks overwhelmed, emotionless in the way that he’s dull, and obviously exhausted. Albert really wants to help, but doesn’t want to interfere too much.</p></div></article>
           </div>
           <aside id="player-4-questions-scene-3" class="question-panel" aria-labelledby="player-4-question-scene-3">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-4-answers-scene-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-4-question-scene-3" class="question-title">Question</h3>
+            <h3 id="player-4-question-scene-3" class="question-title">What can Albert do to help?</h3>
             <div id="player-4-answers-scene-3" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Nothing. There is nothing he can do to help without directly involving himself with Jimmy’s situation"><span class="answer-label" aria-hidden="true">Nothing. There is nothing he can do to help without directly involving himself with Jimmy’s situation</span><span class="effect-label" aria-hidden="true">There is always something he can do to help, but doing nothing will keep him from interfering too much but also allow Jimmy to go on to struggle</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Figure out how to help by discussing with his friends"><span class="answer-label" aria-hidden="true">Figure out how to help by discussing with his friends</span><span class="effect-label" aria-hidden="true">This will only publicise Jimmy’s private mental health conditions and almost always will cause more harm than good</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Privately let the teacher know about the situation"><span class="answer-label" aria-hidden="true">Privately let the teacher know about the situation</span><span class="effect-label" aria-hidden="true">The teacher being aware will make it possible for some sort of positive action to be done at both an academic/school level and possibly awareness at home</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Offer to help Jimmy by doing some of his homework for him"><span class="answer-label" aria-hidden="true">Offer to help Jimmy by doing some of his homework for him</span><span class="effect-label" aria-hidden="true">To help support Jimmy through his mental health difficulties, many moral acts can be done, doing Jimmy’s homework is totally against the rules and can cause more problems later on</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
