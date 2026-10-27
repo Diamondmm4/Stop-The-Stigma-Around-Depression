@@ -127,6 +127,12 @@
     #player-3-answers-scene-3 .answer[data-answer="2"] { --effect-outline: #f87171; }
     #player-3-answers-scene-3 .answer[data-answer="4"] { --effect-outline: #facc15; }
     #player-3-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-4-answers .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-4-answers .answer[data-answer="1"] { --effect-outline: #4ade80; }
+    #player-4-answers .answer[data-answer="2"],
+    #player-4-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
+    #player-4-answers .answer[data-answer="4"] { --effect-outline: #f87171; }
+    #player-4-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -456,16 +462,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-4-scene-1-heading" class="scene-title">Scene 1</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-4-scene-1-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-4-scene-1-heading"><div class="setting-copy"><p>Albert just received his test score, he overheard from other people what they scored and assumed he just got the average as usual. He tries taking peaks at other people’s scores just out of curiosity, when he notices Jimmy’s. Jimmy always scored the highest and he saw that Jimmy did just as good as he did. Albert walks over to Jimmy.</p></div></article>
           </div>
           <aside id="player-4-questions" class="question-panel" aria-labelledby="player-4-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-4-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-4-question" class="question-title">Question</h3>
+            <h3 id="player-4-question" class="question-title">What should Albert do/say here?</h3>
             <div id="player-4-answers" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Albert should turn around and not talk to Jimmy about his grade"><span class="answer-label" aria-hidden="true">Albert should turn around and not talk to Jimmy about his grade</span><span class="effect-label" aria-hidden="true">Jimmy may be feeling terrible at that moment, bringing it up when you weren’t supposed to have even seen it could cause tension and possibly argument</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Albert should ask Jimmy why he got such a low score"><span class="answer-label" aria-hidden="true">Albert should ask Jimmy why he got such a low score</span><span class="effect-label" aria-hidden="true">Jimmy may not have been comfortable sharing his grades especially if it wasn’t ideal. Remember, Jimmy and Albert are NOT close friends</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Albert should try to make Jimmy feel better by telling him a joke"><span class="answer-label" aria-hidden="true">Albert should try to make Jimmy feel better by telling him a joke</span><span class="effect-label" aria-hidden="true">The entire situation could feel terrible to Jimmy, and he might feel even more overwhelmed having Albert say a joke in that moment</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Albert should avoid talking to Jimmy, but go expose his grade to his friends"><span class="answer-label" aria-hidden="true">Albert should avoid talking to Jimmy, but go expose his grade to his friends</span><span class="effect-label" aria-hidden="true">This could cause Jimmy being bothered by even more people later on while on such a sensitive topic to Jimmy</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
