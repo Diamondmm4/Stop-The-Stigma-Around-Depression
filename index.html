@@ -91,6 +91,12 @@
     #player-1-answers-scene-3 .answer[data-answer="2"] { --effect-outline: #f87171; }
     #player-1-answers-scene-3 .answer[data-answer="3"] { --effect-outline: #facc15; }
     #player-1-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-2-answers .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-2-answers .answer[data-answer="1"],
+    #player-2-answers .answer[data-answer="4"] { --effect-outline: #f87171; }
+    #player-2-answers .answer[data-answer="2"] { --effect-outline: #4ade80; }
+    #player-2-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
+    #player-2-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -316,10 +322,10 @@
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-2-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-2-question" class="question-title">Which option is best for Steve to do at this moment?</h3>
             <div id="player-2-answers" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Steve should crack a joke about Jimmy’s busyness"><span class="answer-label" aria-hidden="true">Steve should crack a joke about Jimmy’s busyness</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Steve should talk to Jimmy with empathy and let him know he’s there if Jimmy needs help with anything"><span class="answer-label" aria-hidden="true">Steve should talk to Jimmy with empathy and let him know he’s there if Jimmy needs help with anything</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Totally abandon Jimmy so he can get himself together"><span class="answer-label" aria-hidden="true">Totally abandon Jimmy so he can get himself together</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Keep calling Jimmy until he accepts the offer"><span class="answer-label" aria-hidden="true">Keep calling Jimmy until he accepts the offer</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Steve should crack a joke about Jimmy’s busyness"><span class="answer-label" aria-hidden="true">Steve should crack a joke about Jimmy’s busyness</span><span class="effect-label" aria-hidden="true">Jimmy might be in a more serious situation than Steve realizes and it may worsen Jimmy’s feelings</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Steve should talk to Jimmy with empathy and let him know he’s there if Jimmy needs help with anything"><span class="answer-label" aria-hidden="true">Steve should talk to Jimmy with empathy and let him know he’s there if Jimmy needs help with anything</span><span class="effect-label" aria-hidden="true">Jimmy may now feel more comfortable with Steve. This is a good first step when noticing early stages of depression</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Totally abandon Jimmy so he can get himself together"><span class="answer-label" aria-hidden="true">Totally abandon Jimmy so he can get himself together</span><span class="effect-label" aria-hidden="true">Steve may not know if Jimmy is wanting to talk with someone and this could worsen his condition with him feeling isolated</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Keep calling Jimmy until he accepts the offer"><span class="answer-label" aria-hidden="true">Keep calling Jimmy until he accepts the offer</span><span class="effect-label" aria-hidden="true">This may not only annoy Jimmy, but worsen their relationship which could cause problems for Jimmy in the future</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
