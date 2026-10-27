@@ -85,6 +85,12 @@
     #player-1-answers-scene-2 .answer[data-answer="2"] { --effect-outline: #facc15; }
     #player-1-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #f87171; }
     #player-1-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-1-answers-scene-3 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-1-answers-scene-3 .answer[data-answer="1"],
+    #player-1-answers-scene-3 .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-1-answers-scene-3 .answer[data-answer="2"] { --effect-outline: #f87171; }
+    #player-1-answers-scene-3 .answer[data-answer="3"] { --effect-outline: #facc15; }
+    #player-1-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -379,10 +385,10 @@
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-1-answers-scene-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <h3 id="player-1-question-scene-3" class="question-title">What should Jimmy do?</h3>
             <div id="player-1-answers-scene-3" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Talk to a parent or mental health professional"><span class="answer-label" aria-hidden="true">Talk to a parent or mental health professional</span><span class="effect-label" aria-hidden="true">Jimmy doesn’t need to manage his emotions and situation alone and can take care of himself with external support</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Hide his thoughts out of fear of being judged"><span class="answer-label" aria-hidden="true">Hide his thoughts out of fear of being judged</span><span class="effect-label" aria-hidden="true">His thoughts and conditions will only worsen and can be fatal</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Distract himself from his thoughts hoping they will eventually go away"><span class="answer-label" aria-hidden="true">Distract himself from his thoughts hoping they will eventually go away</span><span class="effect-label" aria-hidden="true">His thoughts may ease depending on how he goes about doing this but his conditions will still be the same</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Call or text the 988 suicide and crisis lifeline for assistance"><span class="answer-label" aria-hidden="true">Call or text the 988 suicide and crisis lifeline for assistance</span><span class="effect-label" aria-hidden="true">He can get assistance without needing to talk to any physical person. The quality of help will still be the same and it’s still an effective solution</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
