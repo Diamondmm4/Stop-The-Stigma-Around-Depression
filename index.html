@@ -109,6 +109,12 @@
     #player-2-answers-scene-3 .answer[data-answer="3"],
     #player-2-answers-scene-3 .answer[data-answer="4"] { --effect-outline: #4ade80; }
     #player-2-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-3-answers .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-3-answers .answer[data-answer="1"],
+    #player-3-answers .answer[data-answer="3"] { --effect-outline: #f87171; }
+    #player-3-answers .answer[data-answer="2"],
+    #player-3-answers .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-3-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -382,16 +388,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-3-scene-1-heading" class="scene-title">Scene 1</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-3-scene-1-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-3-scene-1-heading"><div class="setting-copy"><p>Jimmy and Bob are getting ready for school on a cold day. As they prepare to leave their home, Bob notices Jimmy didn’t put on his jacket. Bob reminds Jimmy and asks him if he wants to wear it since it’s cold outside. Jimmy replies harshly out of annoyance and frustration. Bob is confused, and doesn’t know how to go about dealing with his brother.</p></div></article>
           </div>
           <aside id="player-3-questions" class="question-panel" aria-labelledby="player-3-question">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-3-answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-3-question" class="question-title">Question</h3>
+            <h3 id="player-3-question" class="question-title">What should Bob do?</h3>
             <div id="player-3-answers" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Return the harshness and reply in a rude way back"><span class="answer-label" aria-hidden="true">Return the harshness and reply in a rude way back</span><span class="effect-label" aria-hidden="true">Jimmy could become more angry and there could also be a possibly violent argument between them</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Understand factors that could’ve led to Jimmy’s frustration and try to deescalate the tension."><span class="answer-label" aria-hidden="true">Understand factors that could’ve led to Jimmy’s frustration and try to deescalate the tension.</span><span class="effect-label" aria-hidden="true">They don’t continue to argue and Bob understands that Jimmy may have had poor sleep, a rough morning, etc.</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Take Jimmy’s behavior as offensive and lecture him on his behavior"><span class="answer-label" aria-hidden="true">Take Jimmy’s behavior as offensive and lecture him on his behavior</span><span class="effect-label" aria-hidden="true">Bob and Jimmy’s mood won’t be good and the situation will only be lengthened and escalate in violence</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Let a grown-up/parent know so Jimmy isn’t just being let out in the cold"><span class="answer-label" aria-hidden="true">Let a grown-up/parent know so Jimmy isn’t just being let out in the cold</span><span class="effect-label" aria-hidden="true">Jimmy can be properly calmed down while also being kept safe from the cold</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
