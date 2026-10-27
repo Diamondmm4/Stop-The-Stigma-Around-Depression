@@ -232,6 +232,36 @@
     @media (max-width: 600px) {
       #player-2-reflection .steve-reflection-notes { padding: 24px 20px; border-radius: 18px; }
     }
+
+    #player-3-reflection .reflection-content { max-width: 1120px; }
+    #player-3-reflection .reflection-content > h2,
+    #player-3-reflection .reflection-footer { flex-shrink: 0; }
+    #player-3-reflection .bob-reflection-notes {
+      flex: 1; min-height: 0; margin-top: clamp(22px, 3.5vh, 36px);
+      padding: clamp(22px, 3vw, 40px); overflow-y: auto;
+      border: 1px solid #d4e1d8; border-radius: 22px;
+      background: #ffffffb3; box-shadow: 0 6px 24px #284a3810;
+      font-family: "Merriweather", Georgia, serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.7;
+      overflow-wrap: break-word;
+    }
+    #player-3-reflection .bob-reflection-notes:focus-visible { outline: 2px solid #577b6e; outline-offset: 2px; }
+    #player-3-reflection .bob-reflection-notes p { margin: 0; }
+    #player-3-reflection .bob-reflection-notes p + p { margin-top: 24px; }
+    #player-3-reflection .bob-reflection-notes h3 {
+      margin: clamp(26px, 4vh, 36px) 0 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1.4; font-weight: 600;
+    }
+    #player-3-reflection .bob-reflection-notes ul { margin: 0; padding-left: 1.4em; }
+    #player-3-reflection .bob-reflection-notes li { padding-left: .25em; }
+    #player-3-reflection .bob-reflection-notes li + li { margin-top: clamp(12px, 2vh, 20px); }
+    #player-3-reflection .bob-reflection-notes li::marker { color: #527667; }
+    #player-3-reflection .bob-reflection-notes .reflection-closing { margin-top: 28px; padding-top: 24px; border-top: 1px solid #d4e1d8; }
+    #player-3-reflection .reflection-footer { padding-top: clamp(16px, 2.5vh, 28px); }
+    @media (max-width: 600px) {
+      #player-3-reflection .bob-reflection-notes { padding: 24px 20px; border-radius: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -693,6 +723,18 @@
     <section id="player-3-reflection" class="screen story-screen reflection-screen" data-player="3" aria-labelledby="player-3-reflection-title" aria-hidden="true" inert>
       <div class="reflection-content">
         <h2 id="player-3-reflection-title" tabindex="-1">What We Learned</h2>
+        <div class="bob-reflection-notes" tabindex="0" role="region" aria-label="Bob's reflection points">
+          <p>As the sibling of someone facing mental health, you are able to get them real, professional help easily if you do the right thing</p>
+          <p>The best first step is to talk to them since they spend a lot of their time around you and may have known and lived with you for most of your lives</p>
+          <h3>To make sure they receive the proper support and care they need, you can help by:</h3>
+          <ul>
+            <li>Speaking with your parents</li>
+            <li>Connecting them with a mental health professional/therapist if possible</li>
+            <li>Offering to be available if they need someone to speak with or spend time with</li>
+            <li>Listening to them attentively whenever they need to talk to you</li>
+          </ul>
+          <p class="reflection-closing">In summary, be there for them whenever and if ever they need anything!</p>
+        </div>
         <footer class="reflection-footer">
           <button class="action choose-characters" type="button">Back to Choose a Character</button>
         </footer>
