@@ -115,6 +115,12 @@
     #player-3-answers .answer[data-answer="2"],
     #player-3-answers .answer[data-answer="4"] { --effect-outline: #4ade80; }
     #player-3-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-3-answers-scene-2 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-3-answers-scene-2 .answer[data-answer="1"],
+    #player-3-answers-scene-2 .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-3-answers-scene-2 .answer[data-answer="2"] { --effect-outline: #f87171; }
+    #player-3-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #facc15; }
+    #player-3-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -539,16 +545,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-3-scene-2-heading" class="scene-title">Scene 2</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-3-scene-2-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-3-scene-2-heading"><div class="setting-copy"><p>Bob just finished his homework and is feeling bored. At this time, he’ll go play some video games. He has been trying to get Jimmy to play with him, since that’s something they used to always do. Jimmy now always declines saying he’s too tired, or too busy with schoolwork.</p></div></article>
           </div>
           <aside id="player-3-questions-scene-2" class="question-panel" aria-labelledby="player-3-question-scene-2">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-3-answers-scene-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-3-question-scene-2" class="question-title">Question</h3>
+            <h3 id="player-3-question-scene-2" class="question-title">How should Bob respond to Jimmy’s withdrawal from their usual activities?</h3>
             <div id="player-3-answers-scene-2" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Give Jimmy some space while reminding him that he’s always available to talk and spend time with"><span class="answer-label" aria-hidden="true">Give Jimmy some space while reminding him that he’s always available to talk and spend time with</span><span class="effect-label" aria-hidden="true">Jimmy feels less pressured and is reassured that he has support when needed</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Tell Jimmy that he’s being a bad brother be refusing to spend time with him"><span class="answer-label" aria-hidden="true">Tell Jimmy that he’s being a bad brother be refusing to spend time with him</span><span class="effect-label" aria-hidden="true">Jimmy may feel even more disappointed in himself and isolate himself even more</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Stop inviting Jimmy to activities assuming he prefers to be alone"><span class="answer-label" aria-hidden="true">Stop inviting Jimmy to activities assuming he prefers to be alone</span><span class="effect-label" aria-hidden="true">Jimmy has time to himself and isn’t negatively affected by this decision, but he may still lack the support needed to feel better</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Have a private conversation with Jimmy about what he noticed and offer help to reach out to their parents and/or a mental health professional"><span class="answer-label" aria-hidden="true">Have a private conversation with Jimmy about what he noticed and offer help to reach out to their parents and/or a mental health professional</span><span class="effect-label" aria-hidden="true">Jimmy now has an opportunity to explain his feelings without feeling judged, and more supportive people are aware of his situation</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
