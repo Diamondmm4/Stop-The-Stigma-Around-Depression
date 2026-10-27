@@ -133,6 +133,12 @@
     #player-4-answers .answer[data-answer="3"] { --effect-outline: #facc15; }
     #player-4-answers .answer[data-answer="4"] { --effect-outline: #f87171; }
     #player-4-answers .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-4-answers-scene-2 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-4-answers-scene-2 .answer[data-answer="1"],
+    #player-4-answers-scene-2 .answer[data-answer="4"] { --effect-outline: #4ade80; }
+    #player-4-answers-scene-2 .answer[data-answer="2"],
+    #player-4-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #f87171; }
+    #player-4-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -637,16 +643,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-4-scene-2-heading" class="scene-title">Scene 2</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-4-scene-2-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-4-scene-2-heading"><div class="setting-copy"><p>Albert is heading over to lunch after class as regular. He walks over to sit at a table when he overhears a nearby group talking about Jimmy. He overhears them mentioning that Jimmy wasn’t doing his work in class and called him words like lazy and unserious. Albert knows that Jimmy studies a lot and doubts that these claims are true.</p></div></article>
           </div>
           <aside id="player-4-questions-scene-2" class="question-panel" aria-labelledby="player-4-question-scene-2">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-4-answers-scene-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-4-question-scene-2" class="question-title">Question</h3>
+            <h3 id="player-4-question-scene-2" class="question-title">What should Albert do in this situation?</h3>
             <div id="player-4-answers-scene-2" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Albert should fight this false information by going over and talking to them"><span class="answer-label" aria-hidden="true">Albert should fight this false information by going over and talking to them</span><span class="effect-label" aria-hidden="true">This is a very effective way to challenge the stigma behind people’s mental health and can stop the spreading of this false information about Jimmy</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Albert should join in because it’s not like Jimmy would know"><span class="answer-label" aria-hidden="true">Albert should join in because it’s not like Jimmy would know</span><span class="effect-label" aria-hidden="true">Jimmy can get affected by this in many ways like overhearing all the people talking bad about him, more people disliking Jimmy for false reasons, or even more people joining in</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Albert should ignore them and carry on with eating his lunch"><span class="answer-label" aria-hidden="true">Albert should ignore them and carry on with eating his lunch</span><span class="effect-label" aria-hidden="true">Although nothing is happening to Albert, the situation still being alive and the misinformation still being spread can cause many bad experiences for Jimmy</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Albert should report them to a teacher or other trustable school official"><span class="answer-label" aria-hidden="true">Albert should report them to a teacher or other trustable school official</span><span class="effect-label" aria-hidden="true">This is the best thing he can do to avoid getting much involved in this situation while being able to certainly stop the false information from being spread</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button></div>
           </aside>
