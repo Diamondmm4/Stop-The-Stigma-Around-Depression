@@ -121,6 +121,12 @@
     #player-3-answers-scene-2 .answer[data-answer="2"] { --effect-outline: #f87171; }
     #player-3-answers-scene-2 .answer[data-answer="3"] { --effect-outline: #facc15; }
     #player-3-answers-scene-2 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
+    #player-3-answers-scene-3 .answer { transition: background 260ms, border-color 260ms, box-shadow 260ms; }
+    #player-3-answers-scene-3 .answer[data-answer="1"],
+    #player-3-answers-scene-3 .answer[data-answer="3"] { --effect-outline: #4ade80; }
+    #player-3-answers-scene-3 .answer[data-answer="2"] { --effect-outline: #f87171; }
+    #player-3-answers-scene-3 .answer[data-answer="4"] { --effect-outline: #facc15; }
+    #player-3-answers-scene-3 .answer[aria-pressed="true"] { border-color: var(--effect-outline); box-shadow: inset 0 0 0 2px var(--effect-outline); }
     .answer span { grid-area: 1 / 1; text-align: center; transition: opacity 220ms, transform 220ms; }
     .answer .effect-label { opacity: 0; transform: translateY(5px); }
     .answer[aria-pressed="true"] .answer-label { opacity: 0; transform: translateY(-5px); }
@@ -570,16 +576,16 @@
         <div class="scene-stage">
           <div class="scene-reading">
             <h3 id="player-3-scene-3-heading" class="scene-title">Scene 3</h3>
-            <article class="setting-box scene-box" aria-labelledby="player-3-scene-3-heading"></article>
+            <article class="setting-box scene-box" aria-labelledby="player-3-scene-3-heading"><div class="setting-copy"><p>One late night, Bob notices that Jimmy is still awake and in his room. Bob realizes that Jimmy’s sleeping habits have worsened a lot. Jimmy tends to stay up to work until late, has trouble falling asleep when he does go to bed, and then complains about being exhausted and tired in the morning. Jimmy’s friend Steve told Bob about Jimmy’s poor performance in school.</p></div></article>
           </div>
           <aside id="player-3-questions-scene-3" class="question-panel" aria-labelledby="player-3-question-scene-3">
             <button class="panel-toggle" type="button" aria-label="Open question and answers" aria-expanded="false" aria-controls="player-3-answers-scene-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <h3 id="player-3-question-scene-3" class="question-title">Question</h3>
+            <h3 id="player-3-question-scene-3" class="question-title">What can Bob do to help better his brother’s conditions?</h3>
             <div id="player-3-answers-scene-3" class="answer-grid" inert>
-              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Answer 1"><span class="answer-label" aria-hidden="true">Answer 1</span><span class="effect-label" aria-hidden="true">Effect 1</span></button>
-              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Answer 2"><span class="answer-label" aria-hidden="true">Answer 2</span><span class="effect-label" aria-hidden="true">Effect 2</span></button>
-              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Answer 3"><span class="answer-label" aria-hidden="true">Answer 3</span><span class="effect-label" aria-hidden="true">Effect 3</span></button>
-              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Answer 4"><span class="answer-label" aria-hidden="true">Answer 4</span><span class="effect-label" aria-hidden="true">Effect 4</span></button>
+              <button class="answer" type="button" data-answer="1" aria-pressed="false" aria-label="Recognize the symptoms of depression and try to connect Jimmy to a mental health professional like a therapist"><span class="answer-label" aria-hidden="true">Recognize the symptoms of depression and try to connect Jimmy to a mental health professional like a therapist</span><span class="effect-label" aria-hidden="true">Jimmy can receive proper care and his mental health can gradually improve</span></button>
+              <button class="answer" type="button" data-answer="2" aria-pressed="false" aria-label="Give Jimmy a pep talk to get him to start managing his time better"><span class="answer-label" aria-hidden="true">Give Jimmy a pep talk to get him to start managing his time better</span><span class="effect-label" aria-hidden="true">Jimmy may feel misunderstood and forced because the root of his problem isn’t being affected</span></button>
+              <button class="answer" type="button" data-answer="3" aria-pressed="false" aria-label="Talk to his and Jimmy’s parents privately regarding Jimmy’s situation and how they can work towards improving it"><span class="answer-label" aria-hidden="true">Talk to his and Jimmy’s parents privately regarding Jimmy’s situation and how they can work towards improving it</span><span class="effect-label" aria-hidden="true">Jimmy can now have a stronger source of support which can lead to more improvements like being connected with a therapist or school counselor</span></button>
+              <button class="answer" type="button" data-answer="4" aria-pressed="false" aria-label="Teach Jimmy about better sleeping habits and hope he acts upon them"><span class="answer-label" aria-hidden="true">Teach Jimmy about better sleeping habits and hope he acts upon them</span><span class="effect-label" aria-hidden="true">Jimmy may or may not be able to keep up with what he learns because the cause to him staying up at night isn’t being recognized</span></button>
             </div>
             <div class="panel-footer"><button class="next scene-next" type="button" aria-label="Reflection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reflection</span></button></div>
           </aside>
