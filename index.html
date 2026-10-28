@@ -300,6 +300,34 @@
     @media (max-width: 600px) {
       #player-4-reflection .albert-reflection-notes { padding: 24px 20px; border-radius: 18px; }
     }
+
+    .learn:not(:disabled) { color: #345747; cursor: pointer; transition: background 180ms, transform 180ms; }
+    .learn:not(:disabled):hover { background: #d5e3da; transform: translateY(-2px); }
+    .learn:not(:disabled):active { transform: translateY(0); }
+    .learning-screen { height: 100svh; min-height: 0; padding: 28px 32px 36px; justify-content: flex-start; }
+    .learning-content { width: 100%; max-width: 1400px; height: 100%; min-height: 0; display: flex; flex-direction: column; }
+    .learning-header { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 36px); margin-bottom: 24px; flex-shrink: 0; }
+    .learning-header .back { margin: 0; flex-shrink: 0; }
+    .learning-tabs { display: flex; flex: 1; min-width: 0; gap: 12px; overflow-x: auto; padding: 6px; }
+    .learning-tab { flex-shrink: 0; min-height: 48px; padding: 12px 20px; border: 1px solid #c5d6ca; border-radius: 12px; background: #ffffff80; color: #345747; cursor: pointer; font-weight: 600; transition: background 180ms, color 180ms; }
+    .learning-tab:hover { background: #fff; }
+    .learning-tab[aria-selected="true"] { background: #2d5848; border-color: #2d5848; color: #fff; }
+    .learning-panel { flex: 1; min-height: 0; overflow-y: auto; padding: clamp(24px, 4vw, 56px); border: 1px solid #d4e1d8; border-radius: 24px; background: #ffffffb3; box-shadow: 0 6px 24px #284a3810; animation: learning-reveal 280ms ease; }
+    .learning-panel[hidden] { display: none; }
+    .learning-panel:focus-visible { outline: 3px solid #577b6e; outline-offset: -4px; }
+    .learning-panel h2 { margin: 0 0 clamp(24px, 3.5vh, 36px); font-size: clamp(1.65rem, 3vw, 2.5rem); line-height: 1.25; }
+    .learning-copy { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.125rem, 1.8vw, 1.45rem); line-height: 1.8; overflow-wrap: break-word; }
+    .learning-copy p { margin: 0; }
+    .learning-copy p + p { margin-top: 28px; }
+    @keyframes learning-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      .learning-screen { padding: 22px 16px; }
+      .learning-header { gap: 10px; margin-bottom: 18px; }
+      .learning-header .back { padding: 10px; gap: 4px; }
+      .learning-tab { padding: 12px 14px; }
+      .learning-panel { padding: 24px 20px; border-radius: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .learning-panel { animation: none; } }
   </style>
 </head>
 <body>
@@ -308,7 +336,7 @@
       <h1 id="main-title">End The Stigma <span>Around Depression</span></h1>
       <div class="actions">
         <button id="play" class="action play" type="button">Play Interactive Story</button>
-        <button class="action learn" type="button" disabled>Learn About Depression</button>
+        <button id="learn" class="action learn" type="button" aria-controls="learning-screen">Learn About Depression</button>
       </div>
     </section>
     <section id="character-screen" class="screen" aria-labelledby="character-title" aria-hidden="true" inert>
@@ -791,6 +819,25 @@
         </footer>
       </div>
     </section>
+
+    <section id="learning-screen" class="screen learning-screen" aria-label="Learn About Depression" aria-hidden="true" inert>
+      <div class="learning-content">
+        <header class="learning-header">
+          <button id="learning-back" class="back" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</button>
+          <div class="learning-tabs" role="tablist" aria-label="Aspects of depression">
+            <button id="learning-tab-definition" class="learning-tab" type="button" role="tab" aria-selected="true" aria-controls="learning-panel-definition" tabindex="0">What is Depression?</button>
+          </div>
+        </header>
+        <article id="learning-panel-definition" class="learning-panel" role="tabpanel" aria-labelledby="learning-tab-definition" tabindex="0">
+          <h2>What is Depression?</h2>
+          <div class="learning-copy">
+            <p>Depression or major depressive disorder is a mental disorder that affects how people feel, think, act, and perceive the world.</p>
+            <p>Depression is a lot more common than most people think. Nearly three in ten adults have experienced depression at some point in their lives. Although depression can affect anyone at any time, it is more likely to affect women than men, and more likely to affect teens and younger adults than older adults.</p>
+            <p>There are many causes of depression and in today’s society, a lot of these causes are unknown or forgotten. Depression can be caused by certain events in a person’s life or even negative thoughts about oneself. Major depressive disorder should last for more than 2 weeks with certain systems explained in the next tab.</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
   <script>
     // All story pages use the same transition and layout, with separate content per player.
@@ -915,6 +962,37 @@
     document.querySelectorAll('.choose-characters').forEach(button => {
       button.addEventListener('click', () => {
         showScreen('character-screen', document.getElementById('character-title'));
+      });
+    });
+
+    const learn = document.getElementById('learn');
+    const learningTabs = Array.from(document.querySelectorAll('.learning-tab'));
+    function selectLearningTab(tab, moveFocus = false) {
+      learningTabs.forEach(item => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      });
+      if (moveFocus) tab.focus();
+    }
+    learn.addEventListener('click', () => {
+      selectLearningTab(learningTabs[0]);
+      document.getElementById(learningTabs[0].getAttribute('aria-controls')).scrollTop = 0;
+      showScreen('learning-screen', learningTabs[0]);
+    });
+    document.getElementById('learning-back').addEventListener('click', () => showScreen('home', learn));
+    learningTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectLearningTab(tab));
+      tab.addEventListener('keydown', event => {
+        let nextIndex;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % learningTabs.length;
+        else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + learningTabs.length) % learningTabs.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = learningTabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectLearningTab(learningTabs[nextIndex], true);
       });
     });
   </script>
