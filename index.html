@@ -328,6 +328,10 @@
       .learning-panel { padding: 24px 20px; border-radius: 18px; }
     }
     @media (prefers-reduced-motion: reduce) { .learning-panel { animation: none; } }
+    .learning-copy ul { margin: 18px 0 0; padding-left: 1.4em; }
+    .learning-copy li { padding-left: .25em; }
+    .learning-copy li + li { margin-top: 12px; }
+    .learning-copy li::marker { color: #527667; }
   </style>
 </head>
 <body>
@@ -843,7 +847,18 @@
         </article>
         <article id="learning-panel-symptoms" class="learning-panel" role="tabpanel" aria-labelledby="learning-tab-symptoms" tabindex="0" hidden>
           <h2>Symptoms of Depression</h2>
-          <div class="learning-copy"></div>
+          <div class="learning-copy">
+            <p>There are many signs of depression but for a person to be diagnosed or even appropriately suspected to have depression requires more than just one symptom. Symptoms can vary between boys and girls or teens and adults.</p>
+            <p>The generally common symptoms to look out for are:</p>
+            <ul>
+              <li>Feeling sad, anxious, or empty</li>
+              <li>Losing interest in once enjoyable activities</li>
+              <li>Getting easily frustrated or angered</li>
+              <li>Isolation from friends and family</li>
+              <li>Dropping grades</li>
+              <li>Change in eating/sleeping habits</li>
+            </ul>
+          </div>
         </article>
         <article id="learning-panel-examples" class="learning-panel" role="tabpanel" aria-labelledby="learning-tab-examples" tabindex="0" hidden>
           <h2>Examples</h2>
